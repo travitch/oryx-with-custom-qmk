@@ -232,16 +232,3 @@ tap_dance_action_t tap_dance_actions[] = {
 void matrix_scan_user(void) {
   achordion_task();
 }
-
-bool achordion_chord(uint16_t tap_hold_keycode,
-                     keyrecord_t* tap_hold_record,
-                     uint16_t other_keycode,
-                     keyrecord_t* other_record) {
-
-  // Only apply to the modifiers on the home row
-  if (tap_hold_record->event.key.row == 2) {
-    return achordion_opposite_hands(tap_hold_record, other_record);
-  }
-
-  return false;
-}
